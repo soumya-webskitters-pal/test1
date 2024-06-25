@@ -1,0 +1,11 @@
+[
+  {
+    "id": 0,
+    "title": "CRESCENDO - Web Design & Intelligent Business Automation",
+    "lat": 40.709996097891846,
+    "lng": -74.00794833224923,
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tincidunt interdum vestibulum. Integer nec nisl neque. Proin venenatis facilisis metus, sed semper augue blandit in. Praesent eget erat ut elit luctus varius ut a augue. Integer non ornare arcu, ac malesuada erat. Interdum et malesuada fames ac ante ipsum primis in faucibus. Etiam eu tincidunt est. Praesent nulla libero, luctus eu turpis sed, gravida consequat augue.",
+    "img": "https://picsum.photos/200/300",
+    "zoom": 16
+  }
+]
