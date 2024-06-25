@@ -1,0 +1,164 @@
+body {
+    color: #000;
+    background-color: #fff;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body,
+ul,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+    padding: 0;
+}
+
+ul,
+li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    max-width: 100%
+}
+
+h1 {
+    font-size: 80px;
+}
+
+h2 {
+    font-size: 60px;
+}
+
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+}
+
+canvas {
+    position: relative;
+    max-width: 100vw;
+    max-height: 100vh;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    opacity: 0;
+}
+
+.sec_outer {
+    position: relative;
+    width: 100%;
+    margin: 50px auto;
+}
+
+.tab_outer {
+    text-align: center;
+}
+
+.tab_sec {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    list-style: none;
+    background-color: rgba(255, 255, 255, 0.2);
+    position: relative;
+}
+
+.anim_tab_list {
+    display: inline-block;
+}
+
+.anim_tab_list a {
+    font-size: 14px;
+    padding: 15px 30px;
+    display: block;
+    height: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+.tab_slider {
+    background: #29ABE2;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: auto;
+    z-index: -1;
+    display: inline-flex;
+    margin-top: -3px;
+    height: 3px
+}
+
+.canvas_container {
+    position: relative;
+    min-height: 400px;
+    width: 100%;
+}
+
+.sec_loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    opacity: 0;
+}
+
+.sec_loader.show {
+    opacity: 1 !important;
+}
+
+.sec_loader svg {
+    width: 30px;
+}
+
+.sec_loader span {
+    letter-spacing: 5px;
+    font-size: 12px;
+    text-align: center;
+    margin: 5px 0 0;
+    text-transform: uppercase;
+}
+
+.sec_loader span.error,
+.sec_loader.show span.load,
+.sec_loader.show svg {
+    display: none;
+}
+
+.sec_loader.show span.error {
+    display: block;
+}
+
+.canvas_container h2 {
+    text-align: center;
+    margin: 30px 0;
+}

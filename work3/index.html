@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, shrink-to-fit=no, user-scalable=no" />
+	<meta name="msapplication-tap-highlight" content="no" />
+	<title>test</title>
+
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+	<meta name="author" content="" />
+	<!--preloader-->
+</head>
+<link rel="stylesheet" href="style.css" />
+
+<body>
+
+	<div class="tab_outer">
+		<div class="tab_sec" id="anim_tabset">
+			<span class="tab_slider" id="tab_slider"></span>
+			<div class="anim_tab_list active" data-tab="1"><a href="#">Boardroom</a></div>
+			<div class="anim_tab_list" data-tab="2"><a href="#">Auditorium</a></div>
+			<div class="anim_tab_list" data-tab="3"><a href="#">Fishbowl</a></div>
+			<div class="anim_tab_list" data-tab="4"><a href="#">Hollow Square</a></div>
+			<div class="anim_tab_list" data-tab="5"><a href="#">Classroom</a></div>
+			<div class="anim_tab_list" data-tab="6"><a href="#">Herringbone</a></div>
+			<div class="anim_tab_list" data-tab="7"><a href="#">u-Shape</a></div>
+			<div class="anim_tab_list" data-tab="8"><a href="#">Banquet</a></div>
+			<div class="anim_tab_list" data-tab="9"><a href="#">Custom Layout</a></div>
+		</div>
+	</div>
+	<div class="canvas_container">
+		<div class="sec_loader" id="sec_loader">
+			<div>
+				<svg viewBox="0 0 16 16" width="30px" height="16px" version="1.1" xmlns="http://www.w3.org/2000/svg">
+					<circle id="c1" cx="8" cy=8 r="8" fill="#29B6F6" />
+					<circle id="c2" cx="14" cy=8 r="8" fill="#FF4081" />
+				</svg>
+				<span class="load">LOADING</span>
+				<span class="error">Can't load this section.<br>please reload the page.</span>
+			</div>
+		</div>
+		<h2 id="anim_title"></h2>
+		<canvas id="canvas"></canvas>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js" crossorigin="anonymous"></script>
+	<script src="js/custom.js"></script>
+</body>
+
+</html>
