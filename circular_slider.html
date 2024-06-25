@@ -1,0 +1,207 @@
+<!-- circular slider -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+        }
+
+        /*--*/
+        .circular_slider {
+            height: 100vh;
+            overflow: hidden;
+            width: 100%;
+            position: relative;
+        }
+
+        .wrapper {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* transform: translateX(-50%);
+            width: 300vw;
+            height: 300vw;
+            max-width: 2000px;
+            max-height: 2000px; */
+        }
+
+        .sl_item {
+            position: absolute;
+            top: 0;
+            left: 0;
+            max-width: 200px;
+            max-height: 360px;
+            aspect-ratio: 1/1;
+            cursor: pointer;
+            transform-origin: 50% 50%;
+        }
+
+        .sl_item>* {
+            width: 100%;
+            pointer-events: none;
+        }
+
+        .sl_item img {
+            object-fit: cover;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="height:50vh;background:red"></div>
+    <div class="circular_slider">
+        <div class="wrapper">
+            <div class="sl_item">
+                <div class="sl_item_inner">
+                    <img src="https://picsum.photos/200/250" alt="">
+                </div>
+            </div>
+            <div class="sl_item">
+                <div class="sl_item_inner">
+                    <img src="https://picsum.photos/200/251" alt="">
+                </div>
+            </div>
+            <div class="sl_item">
+                <div class="sl_item_inner">
+                    <img src="https://picsum.photos/200/252" alt="">
+                </div>
+            </div>
+            <div class="sl_item">
+                <div class="sl_item_inner">
+                    <img src="https://picsum.photos/200/253" alt="">
+                </div>
+            </div>
+            <div class="sl_item">
+                <div class="sl_item_inner">
+                    <img src="https://picsum.photos/200/254" alt="">
+                </div>
+            </div>
+            <div class="sl_item">
+                <div class="sl_item_inner">
+                    <img src="https://picsum.photos/200/255" alt="">
+                </div>
+            </div>
+            <div class="sl_item">
+                <div class="sl_item_inner">
+                    <img src="https://picsum.photos/200/258" alt="">
+                </div>
+            </div>
+            <div class="sl_item">
+                <div class="sl_item_inner">
+                    <img src="https://picsum.photos/200/256" alt="">
+                </div>
+            </div>
+            <div class="sl_item">
+                <div class="sl_item_inner">
+                    <img src="https://picsum.photos/200/257" alt="">
+                </div>
+            </div>
+            <div class="sl_item">
+                <div class="sl_item_inner">
+                    <img src="https://picsum.photos/200/259" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="height:150vh;background:red"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+    <script>
+        const rotator_slider = document.querySelectorAll(".circular_slider");
+        if (rotator_slider.length) {
+            rotator_slider.forEach((el, i) => {
+                const wheel = el.querySelector(".wrapper");
+                items = wheel.querySelectorAll(".sl_item");
+                const total = items.length;
+
+                function setup() {
+                    let width = window.innerWidth;
+                    gsap.set(wheel, {
+                        width: width,
+                        height: width,
+                        maxWidth: width,
+                        maxHeight: width,
+                        xPercent: -50,
+                        yPercent: 15,
+                        // yPercent: -60,
+                        transformOrigin: "50% 50%",
+                    });
+                    let radius = wheel.offsetWidth / 2,
+                        center = wheel.offsetWidth / 2;
+                    let slice = (2 * Math.PI) / total;
+
+                    items.forEach((item, i) => {
+                        let angle = i * slice;
+                        let x = center + radius * Math.sin(angle);
+                        let y = center + radius * Math.cos(angle);
+
+                        gsap.set(item, {
+                            rotation: angle,
+                            xPercent: -50,
+                            yPercent: -50,
+                            attr: {
+                                "data-rotation": angle
+                            },
+                            x: x,
+                            y: y,
+                            transformOrigin: "50% 50%"
+                        })
+                    })
+                }
+
+                gsap.to(wheel, {
+                    rotation: () => -360,
+                    attr: {
+                        "data-rotation": () => -360
+                    },
+                    ease: "none",
+                    duration: total,
+                    force3D: true,
+                    onUpdate: () => {
+                        let wheel_rotation = wheel.getAttribute("data-rotation");
+                        console.log('wheel rotate: ', wheel_rotation);
+                        items.forEach((item, i) => {
+                            let item_rotation = item.getAttribute("data-rotation");
+                            console.log('item rotate: ', item_rotation);
+                            gsap.set(item, {
+                                rotation: gsap.utils.clamp(-1 * (-360, 360, wheel_rotation - item_rotation)),
+                            })
+                        })
+                    },
+                    scrollTrigger: {
+                        trigger: el,
+                        start: "top top",
+                        end: "+=300%",
+                        scrub: 1,
+                        // snap: 1 / length,
+                        invalidateOnRefresh: true,
+                        pin: true,
+                    }
+                })
+
+                setup();
+
+                window.addEventListener("resize", setup)
+            })
+        }
+    </script>
+</body>
+
+</html>
