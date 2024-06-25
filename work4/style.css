@@ -1,0 +1,236 @@
+body {
+    margin: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+ul {
+    padding: 0;
+    list-style: none;
+}
+
+.gap {
+    height: 150vh;
+    width: 100%;
+    background-color: red;
+    color: #fff;
+    font-size: 50px;
+}
+
+.container {
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+}
+
+.watch_main {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.watch_main img {
+    width: 20%;
+    max-width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+.watch_main img:first-child,
+.watch_main img:last-child {
+    z-index: -1;
+    opacity: 0;
+}
+
+.sec {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+}
+
+.section {
+    display: flex;
+    align-items: center;
+}
+
+.sec_content {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    z-index: 4;
+}
+
+.sec_hd {
+    text-align: center;
+    margin-bottom: auto;
+    padding-top: 20px;
+    position: relative;
+    z-index: 5;
+}
+
+.sec_hd h2 {
+    font-size: 52px;
+    margin: 0;
+}
+
+.sec_btm_cont {
+    margin-top: auto;
+    padding-bottom: 40px;
+    position: relative;
+    z-index: 5;
+}
+
+.sec1 .sec_btm_cont {
+    max-width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.watchface {
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    background-color: gray;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    aspect-ratio: 1;
+    opacity: 0;
+    transform: translateY(100%);
+    -webkit-transform: translateY(100%);
+    -moz-transform: translateY(100%);
+    -ms-transform: translateY(100%);
+    -o-transform: translateY(100%);
+}
+
+.watchFace_row {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-gap: 30px 25px;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+}
+
+.list_details {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.list_headline {
+    font-size: 24px;
+}
+
+.sec_middle {
+    transform: translateY(50%);
+    -webkit-transform: translateY(50%);
+    -moz-transform: translateY(50%);
+    -ms-transform: translateY(50%);
+    -o-transform: translateY(50%);
+    opacity: 0;
+    display: block;
+    position: relative;
+    background: rgb(255, 255, 255);
+}
+
+.sec_middle:after {
+    content: "";
+    bottom: 100%;
+    left: 0;
+    width: 100%;
+    height: 25%;
+    background: rgb(255, 255, 255);
+    background: linear-gradient(0deg, rgba(255, 255, 255, 1) 10%, rgba(0, 0, 0, 0) 100%);
+    position: absolute;
+}
+
+.sec_middle h3 {
+    margin: 0;
+    font-size: 12vw;
+    text-align: center;
+}
+
+.watch_box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    transform: translateY(100%);
+    -webkit-transform: translateY(100%);
+    -moz-transform: translateY(100%);
+    -ms-transform: translateY(100%);
+    -o-transform: translateY(100%);
+}
+
+.watch_box:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 25%;
+    background: rgb(255, 255, 255);
+    background: linear-gradient(0deg, rgba(255, 255, 255, 1) 45%, rgba(0, 0, 0, 0) 100%);
+}
+
+.watch_box img {
+    max-width: 20vw;
+}
+
+.shadow {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 28%;
+    left: 0;
+    background: rgb(255, 255, 255);
+    background: linear-gradient(0deg, rgba(255, 255, 255, 1) 60%, rgba(0, 0, 0, 0) 100%);
+    z-index: 3;
+}
+
+.watchFc_all {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sec3 .list_details li {
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+
+.sec3 .list_details li:nth-child(2n) {
+    text-align: right;
+}

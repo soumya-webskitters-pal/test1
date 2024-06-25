@@ -1,0 +1,179 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  width: 100%;
+  font-weight: 400;
+  font-size: 16px;
+  font-style: normal;
+  color: #ffffff;
+  line-height: 1.8;
+  background: #000;
+}
+.how-it-works {
+  z-index: 2;
+  width: 100%;
+  background-color: #001822;
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+}
+.how-work-upper-hd {
+  z-index: 5;
+  background-color: #001822;
+  border-bottom: 1px solid #fff;
+  padding: 25px 70px;
+  position: relative;
+  overflow: hidden;
+}
+.how-work-hd-img {
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-width: 100%;
+  display: inline-block;
+}
+.how-it-works-body {
+  overflow: hidden;
+}
+.how-work-back {
+  z-index: -1;
+  width: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+}
+.how-it-works-body-each {
+  z-index: 2;
+  height: 100vh;
+  align-items: center;
+  padding: 40px 70px;
+  position: relative;
+}
+.how-work-body-wpr {
+  height: 100%;
+  align-items: center;
+  display: flex;
+}
+.box-left,
+.box-right {
+  width: 50%;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+.heading-all-h2 {
+  color: #fff;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 50px;
+  font-weight: 400;
+  line-height: 1.3em;
+}
+.explore-tab-list {
+  align-items: center;
+  margin-bottom: 0;
+  margin-left: -30px;
+  margin-right: -30px;
+  padding-left: 0;
+  display: flex;
+}
+.how-work-tab-list-each {
+  padding: 20px 30px;
+  list-style: none;
+}
+.how-work-tab-list-each.active a {
+  color: #49c6b7;
+}
+.how-work-tab-list-each a {
+  color: #fff;
+  align-items: center;
+  text-decoration: none;
+  display: flex;
+  position: relative;
+}
+.how-work-tab-list-each a::after {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -10px;
+  width: 100%;
+  height: 4px;
+  background: #f6f6f6;
+  content: "";
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+  border-radius: 10px;
+}
+.how-work-tab-list-each a:hover::after,
+.how-work-tab-list-each.active ::after {
+  opacity: 1;
+}
+.how-work-tab-list {
+  align-items: center;
+  display: flex;
+  padding: 0;
+  margin: 0;
+  background-color: blueviolet;
+}
+.header {
+  z-index: 5;
+  position: relative;
+}
+/*----*/
+section,
+footer {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+}
+.left-col,
+.middle-col,
+.right-col,
+.full-col {
+  height: 100vh;
+  margin: 0;
+}
+.width-0 {
+  width: 0;
+}
+.width-33 {
+  width: 33.33%;
+}
+.width-66 {
+  width: 66.66%;
+}
+.width-100 {
+  width: 100%;
+}
+#landing-page .full-col {
+  background-color: grey;
+}
+#rooms .left-col {
+  background-color: red;
+}
+#rooms .right-col {
+  background-color: pink;
+}
+#you .middle-col {
+  background-color: green;
+}
+#you .left-col,
+#you .right-col {
+  background-color: palegreen;
+}
+#near .right-col {
+  background-color: blue;
+}
+#near .left-col {
+  background-color: lightblue;
+}
+footer {
+  background-color: black;
+  color: white;
+}

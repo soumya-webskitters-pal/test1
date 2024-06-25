@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>reveal.js</title>
+
+	<link rel="stylesheet" href="dist/reset.css">
+	<!-- <link rel="stylesheet" href="dist/reveal.css"> -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.0.2/dist/reveal.css">
+	<style>
+		.reveal_outer {
+			position: relative;
+			height: 100vh;
+		}
+
+		.reveal_outer .reveal {
+			position: fixed;
+			top: 0;
+			left: 0;
+			z-index: 1;
+			background-color: transparent !important;
+		}
+
+		.reveal_outer .reveal section {
+			height: 100vh;
+		}
+
+		.rest_page {
+			position: relative;
+			background: yellow;
+			height: 200vh;
+			z-index: 5;
+		}
+
+		h1 {
+			font-size: 10vw;
+		}
+
+		.list {
+			position: fixed;
+			z-index: 2;
+			top: 50%;
+			left: 50px;
+			transform: translateY(-50%);
+			color: #fff;
+			font-size: 30px;
+			list-style: none;
+		}
+
+		.list li+li {
+			margin-top: 20px;
+		}
+
+		.list li.active {
+			transform: scale(2);
+			color: red;
+		}
+
+		.reveal_outer .reveal .slides>section[data-transition=slide].past,
+		.reveal_outer .reveal .slides>section[data-transition~=slide-out].past,
+		.reveal_outer .reveal.slide .slides>section:not([data-transition]).past {
+			transform: translate(0, -150%);
+		}
+
+		.reveal_outer .reveal .slides>section[data-transition=slide].future,
+		.reveal_outer .reveal .slides>section[data-transition~=slide-in].future,
+		.reveal_outer .reveal.slide .slides>section:not([data-transition]).future {
+			transform: translate(0, 150%);
+		}
+	</style>
+</head>
+
+<body>
+	<div class="reveal_outer">
+		<div class="reveal" style="background:url(https://picsum.photos/id/232/1920/1080)">
+			<div class="slides">
+				<section class="section" style="color: red">
+					<h1>Slide 1</h1>
+				</section>
+				<section class="section" style="color: green">
+					<h1>Slide 2</h1>
+				</section>
+				<section class="section" style="color: blue">
+					<h1>Slide 3</h1>
+				</section>
+			</div>
+		</div>
+	</div>
+
+	<div class="rest_page">
+		<h1>content start</h1>
+	</div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.0.2/dist/reveal.js"></script>
+
+	<script>
+		gsap.registerPlugin(ScrollTrigger);
+		window.history.scrollRestoration = "manual";
+		ScrollTrigger.clearScrollMemory();
+		window.scrollTo(0, 0);
+
+		document.body.style.overflow = "hidden";
+
+		Reveal.initialize({
+			mouseWheel: true,
+			touch: true,
+			controls: false,
+			controlsTutorial: false,
+			progress: false,
+			respondToHashChanges: false,
+			jumpToSlide: false,
+			keyboard: false,
+			overview: false,
+			fragments: false,
+			fragmentInURL: false,
+			help: false,
+			hideInactiveCursor: false,
+			embedded: true,
+			width: window.innerWidth,
+			height: window.innerHeight,
+			margin: 0,
+			minScale: 1,
+			maxScale: 1,
+		});
+		Reveal.layout();
+
+		Reveal.on('ready', event => {
+			let parent = document.querySelector(".reveal_outer"),
+				els = parent.querySelectorAll(".slides>.section");
+			let list = document.createElement("ul");
+			list.classList.add("list");
+			parent.append(list);
+			els.forEach((el, i) => {
+				let li = document.createElement("li");
+				li.innerHTML = (i + 1).toString().padStart(2, 0);
+				list.append(li);
+			})
+			console.log("::", event.indexh);
+			list.querySelectorAll("li")[event.indexh].classList.add("active");
+			// event.currentSlide, event.indexh, event.indexv
+		});
+
+
+		Reveal.on('slidechanged', event => {
+			Reveal.configure({
+				mouseWheel: false,
+				touch: false,
+			});
+			let list = document.querySelector(".list");
+			let els = list.querySelectorAll("li");
+			els.forEach((el, i) => {
+				el.classList.remove("active");
+			})
+			list.querySelectorAll("li")[event.indexh].classList.add("active");
+		});
+
+		Reveal.on('slidetransitionend', event => {
+			Reveal.configure({
+				mouseWheel: true,
+				touch: true,
+			});
+			if (event.indexh == document.querySelectorAll(".reveal>.slides>section").length - 1) {
+				console.log("last slidetransitionend");
+				document.body.style.overflow = "auto";
+				Reveal.configure({
+					mouseWheel: false,
+					touch: false,
+				});
+			}
+		});
+
+		window.addEventListener("resize", () => {
+			Reveal.configure({
+				width: window.innerWidth,
+				height: window.innerHeight,
+			});
+		})
+
+		ScrollTrigger.create({
+			trigger: ".reveal_outer",
+			start: "top top",
+			end: 5,
+			// pin: true,
+			onEnterBack: () => {
+				Reveal.configure({
+					mouseWheel: true,
+					touch: true,
+				});
+				document.body.style.overflow = "hidden";
+				console.log("onEnterBack");
+			},
+			onLeave: () => {
+				Reveal.configure({
+					mouseWheel: false,
+					touch: false,
+				});
+				document.body.style.overflow = "auto";
+				console.log("onLeave");
+			},
+			// pinSpacing: false,
+			// markers: true,
+		});
+
+	</script>
+</body>
+
+</html>

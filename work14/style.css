@@ -1,0 +1,285 @@
+/* font-family: 'Roboto', sans-serif; */
+
+:root {
+  --baseFont: "Lexend Deca", sans-serif;
+  --headlineFont: "Bebas Neue", sans-serif;
+  --ThemeFont: "Klender DEMO", sans-serif;
+  --black: #000000;
+  --white: #ffffff;
+  --blue: #00d0fd;
+  --blue2: #009cdf;
+  --blue3: #85ccff;
+  --gray: #7d7d7d;
+  --gray2: #d8d8d8;
+  --drk: #490d00;
+  --red: #e5014f;
+  --bgImg: #d9d9d9;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:after,
+:before {
+  pointer-events: none;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--baseFont);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  width: 100%;
+  font-weight: normal;
+  font-style: normal;
+  color: var(--white);
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.4;
+  background: var(--black);
+}
+body.disable {
+  height: 100vh;
+  overflow: hidden;
+}
+b,
+strong {
+  font-weight: 700;
+}
+
+p {
+  margin: 0 0 22px 0;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+h6 {
+  margin: 0 0 25px 0;
+  padding: 0;
+  color: inherit;
+  font-weight: 400;
+  font-family: var(--headlineFont);
+}
+
+h1:last-child,
+.h1:last-child,
+h2:last-child,
+.h2:last-child,
+h3:last-child,
+.h3:last-child,
+h4:last-child,
+.h4:last-child,
+h5:last-child,
+h6:last-child {
+  margin-bottom: 0;
+}
+
+h1,
+.h1 {
+  font-size: 90px;
+  line-height: 1;
+  font-family: var(--ThemeFont);
+  font-weight: 400;
+}
+
+h2,
+.h2 {
+  font-size: 54px;
+  line-height: 1.2;
+}
+
+h3,
+.h3 {
+  font-weight: 400;
+  font-size: 38px;
+  line-height: 1;
+}
+
+h4,
+.h4 {
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 1.1;
+}
+
+h5 {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.2;
+}
+
+a {
+  margin: 0;
+  padding: 0;
+  text-decoration: none !important;
+  outline: none !important;
+  color: var(--drk);
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  display: inline-block;
+}
+
+a:hover {
+  color: var(--red);
+}
+
+img {
+  max-width: 100%;
+}
+figure {
+  margin-bottom: 0;
+}
+
+/* ========= main style ========= */
+.fix_sec,
+.after_fix,
+.fix_sec .container {
+  position: relative;
+}
+.fix_sec .header {
+  margin: 100px 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 3;
+}
+.after_fix {
+  padding: 100px 0;
+}
+.box {
+  position: relative;
+  height: 650px;
+}
+.all_video,
+.all_imgs {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 1;
+}
+.all_video {
+  opacity: 0.5;
+}
+.all_sec {
+  position: relative;
+  z-index: 2;
+}
+.each_Sec {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+}
+.all_video video,
+.bg_anim,
+.bg {
+  z-index: -1;
+  object-fit: cover;
+}
+.all_video video,
+.bg_anim,
+.bg,
+.all_imgs figure {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pt {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.header {
+  color: #fff;
+  font-size: 20px;
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  margin-bottom: 35px;
+}
+.header h2 {
+  text-transform: uppercase;
+  margin: 0 auto 15px;
+}
+
+.rt {
+  max-width: 280px;
+  margin-left: auto;
+}
+.all_sec .each_Sec:nth-child(even) .rt {
+  margin-left: 0;
+}
+.sticky_box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.stickyimg {
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+.img_holder {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  transition: transform 1s ease;
+}
+.sticky_box.nxt_sec .img_holder {
+  transform: translateY(240px);
+}
+.bg_anim {
+  transform: translateY(20%);
+  opacity: 0;
+  transition: opacity 1.5s ease;
+}
+.bg_anim.anim {
+  opacity: 0.5;
+}
+.fig_points {
+  opacity: 0;
+  transition: opacity 1.5s ease;
+}
+.sticky_box.nxt_sec .fig_points {
+  opacity: 1;
+}
+
+
+/* ========== responsive css =========== */
+@media (min-width: 1025px) {
+}

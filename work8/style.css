@@ -1,0 +1,73 @@
+:root {
+  --baseSize: 18px;
+  --headingBaseSize: 21px;
+  --baseFont: "Poppins", sans-serif;
+  --headlineFont: "Poppins", sans-serif;
+  --black: #000000;
+  --white: #ffffff;
+  --maroon: #7a2048;
+  --maroonLight: #8a307f;
+  --blue: #408ec6;
+  --blueLight: #9fd2f7;
+  --blueDark: #1e2761;
+  --gray: #cccccc;
+  --base: #58666c;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:after,
+:before {
+  pointer-events: none;
+}
+body {
+  background-color: #fff;
+}
+.graph_box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 600px;
+  overflow: hidden;
+}
+#c {
+  height: 100%;
+  width: 100%;
+  max-width: 100%;
+  object-fit: cover;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 0.5s ease;
+}
+#c.show {
+  opacity: 1;
+  pointer-events: all;
+}
+
+#graph_list {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+#graph_list li {
+  padding: 15px 30px;
+  cursor: pointer;
+}
+#graph_list li:hover,
+#graph_list li.active {
+  background-color: #d6d6d6;
+}
+section {
+  padding: 100px 0;
+}

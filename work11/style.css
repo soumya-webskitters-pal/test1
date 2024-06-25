@@ -1,0 +1,76 @@
+:root {
+  --baseSize: 18px;
+  --headingBaseSize: 21px;
+  --baseFont: "Poppins", sans-serif;
+  --headlineFont: "Poppins", sans-serif;
+  --black: #000000;
+  --white: #ffffff;
+  --maroon: #7a2048;
+  --maroonLight: #8a307f;
+  --blue: #408ec6;
+  --blueLight: #9fd2f7;
+  --blueDark: #1e2761;
+  --gray: #cccccc;
+  --base: #58666c;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:after,
+:before {
+  pointer-events: none;
+}
+.can {
+  background-color: #fff;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+}
+
+.can_container {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+}
+.can_label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  z-index: 1;
+  overflow: hidden;
+}
+.can_label img {
+  height: 100%;
+  width: auto;
+  max-width: none;
+}
+.shadow {
+  position: absolute;
+  top: 15%;
+  left: 0;
+  height: 70%;
+  width: 15%;
+  z-index: 2;
+  opacity: 0.5;
+}
+.shadow img {
+  height: 100%;
+  width: auto;
+}
+.shadow.a {
+  width: 10%;
+  left: -8%;
+}
+.shadow.b {
+  top: 25%;
+  left: 12%;
+  height: 40%;
+}
